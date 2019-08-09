@@ -8,6 +8,7 @@ dependencies:
     github: ysbaddaden/pool
   redis:
     github: stefanwille/crystal-redis
+    version: ~> 2
 
 authors:
   - Rimas Silkaitis <neovintage@gmail.com>
