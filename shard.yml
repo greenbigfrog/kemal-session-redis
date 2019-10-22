@@ -4,7 +4,6 @@ version: 0.3.0
 dependencies:
   kemal-session:
     github: kemalcr/kemal-session
-    version: ~> 0.11.0
   pool:
     github: ysbaddaden/pool
   redis:
