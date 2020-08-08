@@ -9,7 +9,7 @@ Add this to your application's `shard.yml`:
 ```yaml
 dependencies:
   kemal-session-redis:
-    github: neovintage/kemal-session-redis
+    github: kefahi/kemal-session-redis
     version: 0.3.0
 ```
 
