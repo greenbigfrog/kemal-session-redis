@@ -127,7 +127,7 @@ module Kemal
 				load_into_cache(session_id)
 			end
 
-			def get_session(session_id : String)
+			def get_session(session_id : String) : Kemal::Session | Nil
 				conn = @redis.checkout
 				value = conn.get(prefix_session(session_id))
 				@redis.checkin(conn)
@@ -158,7 +158,7 @@ module Kemal
 				@redis.checkin(conn)
 			end
 
-			def all_sessions
+			def all_sessions : Array(Kemal::Session)
 				arr = [] of Session
 
 				each_session do |session|
