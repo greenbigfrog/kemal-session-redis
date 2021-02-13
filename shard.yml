@@ -3,7 +3,7 @@ version: 0.3.0
 
 dependencies:
   kemal-session:
-    github: kemalcr/kemal-session
+    github: kefahi/kemal-session
     branch: master
   pool:
     github: ysbaddaden/pool
