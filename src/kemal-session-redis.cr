@@ -9,11 +9,7 @@ module Kemal
 		class RedisEngine < Engine
 			class StorageInstance
 				macro define_storage(vars)
-					JSON.mapping({
-						{% for name, type in vars %}
-							{{name.id}}s: Hash(String, {{type}}),
-						{% end %}
-					})
+          include JSON::Serializable
 
 					{% for name, type in vars %}
 						@{{name.id}}s = Hash(String, {{type}}).new
@@ -49,8 +45,11 @@ module Kemal
 				})
 			end
 
+      @[JSON::Field(ignore: true)]
 			@redis  : ConnectionPool(Redis)
+      @[JSON::Field(ignore: true)]
 			@cache : StorageInstance
+      @[JSON::Field(ignore: true)]
 			@cached_session_id : String
 
 			def initialize(host = "localhost", port = 6379, password = nil, database = 0, capacity = 20, timeout = 2.0, unixsocket = nil, pool = nil, key_prefix = "kemal:session:")
