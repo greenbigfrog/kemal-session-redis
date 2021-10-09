@@ -158,7 +158,7 @@ class Session
       @redis.checkin(conn)
     end
 
-    def all_sessions
+    def all_sessions : [] of Session
       arr = [] of Session
 
       each_session do |session|
