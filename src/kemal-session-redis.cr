@@ -127,7 +127,7 @@ class Session
       load_into_cache(session_id)
     end
 
-    def get_session(session_id : String)
+    def get_session(session_id : String) : (Kemal::Session | Nil)
       conn = @redis.checkout
       value = conn.get(prefix_session(session_id))
       @redis.checkin(conn)
